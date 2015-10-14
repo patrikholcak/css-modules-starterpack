@@ -1,0 +1,34 @@
+{
+  "name": "css-modules",
+  "version": "1.0.0",
+  "description": "CSS Modules webpack demo",
+  "main": "index.js",
+  "author": "Patrik Holcak <patrik@holcak.com> (http://holcak.com)",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.25",
+    "babel-loader": "^5.3.2",
+    "babel-plugin-react-transform": "^1.1.1",
+    "css-loader": "^0.19.0",
+    "express": "^4.13.3",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "postcss-loader": "^0.6.0",
+    "postcss-mixins": "^1.0.2",
+    "postcss-nested": "^1.0.0",
+    "react-transform-catch-errors": "^1.0.0",
+    "react-transform-hmr": "^1.0.1",
+    "redbox-react": "^1.1.1",
+    "style-loader": "^0.12.4",
+    "webpack": "^1.12.2",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-hot-middleware": "^2.4.1"
+  },
+  "scripts": {
+    "production": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

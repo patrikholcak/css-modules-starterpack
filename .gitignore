@@ -1,0 +1,10 @@
+# OS bullshit
+.DS_Store
+Thumbs.db
+
+# npm
+npm-debug.log
+node_modules
+
+# built sources
+/dist
