@@ -14,7 +14,7 @@ var paths= [
 module.exports = {
   devtool: 'source-map',
   entry: {
-    renderer: './src/dev.js',
+    __DELETE__: './src/dev.js',
     client: './src/client.js'
   },
   output: {
@@ -26,7 +26,7 @@ module.exports = {
     extensions: ['', '.js', '.css']
   },
   plugins: [
-    new StaticSiteGeneratorPlugin('renderer', paths),
+    new StaticSiteGeneratorPlugin('__DELETE__', paths),
     new ExtractTextPlugin('[name].css'),
     new webpack.optimize.UglifyJsPlugin({
       mangle: {

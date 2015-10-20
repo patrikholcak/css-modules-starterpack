@@ -35,9 +35,8 @@
     "webpack-hot-middleware": "^2.4.1"
   },
   "scripts": {
-    "start": "node server.js",
     "build": "webpack --config webpack.config.prod.js --colors --progress",
-    "production": "NODE_ENV=production npm run build&&rm dist/renderer.*",
+    "production": "NODE_ENV=production npm run build&&rm dist/__DELETE__.*",
     "gh-pages": "gh-pages -d dist/",
     "deploy": "./deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
