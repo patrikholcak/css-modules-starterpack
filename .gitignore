@@ -1,6 +1,9 @@
-# OS bullshit
+# OS Cache
 .DS_Store
 Thumbs.db
+
+# env
+.env
 
 # npm
 npm-debug.log

@@ -1,19 +1,32 @@
+require('dotenv').load()
+
 var path = require('path'),
     webpack = require('webpack'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin'),
     mixins = require('./src/styles/mixins'),
     autoprefixer = ['last 2 versions'];
+
+var paths= [
+  '/'
+]
 
 module.exports = {
   devtool: 'source-map',
   entry: {
-    client: './src/client'
+    renderer: './src/dev.js',
+    client: './src/client.js'
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: '[name].js',
+    libraryTarget: 'umd'
+  },
+  resolve: {
+    extensions: ['', '.js', '.css']
   },
   plugins: [
+    new StaticSiteGeneratorPlugin('renderer', paths),
     new ExtractTextPlugin('[name].css'),
     new webpack.optimize.UglifyJsPlugin({
       mangle: {
@@ -35,14 +48,13 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, 'src')
+      loaders: ['transform?envify', 'babel']
     }, {
       test: /main\.css$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader?importLoaders=1!postcss-loader')
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap&importLoaders=1!postcss-loader')
     }, {
       test: /^((?!main).)*\.css$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader')
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap&modules&importLoaders=1!postcss-loader')
     }]
   },
   postcss: [

@@ -1,5 +1,0 @@
-.text {
-  font-family: Georgia;
-  font-size: 30px;
-  @mixin fix-gpu 0, 0, 0, transform;
-}

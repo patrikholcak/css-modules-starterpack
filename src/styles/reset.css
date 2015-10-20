@@ -6,8 +6,8 @@
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
-  -webkit-user-select: none;
-  font-family: 'Roboto', sans-serif;
+  font-family: sans-serif;
+  text-decoration: none;
 }
 
 ul,
